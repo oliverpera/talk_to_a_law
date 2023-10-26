@@ -1,8 +1,17 @@
 import pdfreader
 from pdfreader import PDFDocument, SimplePDFViewer
+from langchain.document_loaders import PyPDFLoader, DirectoryLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter 
 
-pdf_path = "KWG.pdf"
-fd = open(pdf_path, "rb")
-viewer = SimplePDFViewer(fd)
+DATA_PATH = 'data_source/'
 
-print(viewer.metadata)
+loader = DirectoryLoader(DATA_PATH,
+                             glob='*.pdf',
+                             loader_cls=PyPDFLoader)
+
+documents = loader.load()
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500,
+                                                   chunk_overlap=50)
+texts = text_splitter.split_documents(documents)
+
+print(texts)
