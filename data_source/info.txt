@@ -1,0 +1,2 @@
+Ordner enthält alle aktuellen Quellen, alle PDFs mit den Gesetzestexten
+- muss angepasst werden, da die PDFs später vom Benutzer selbst hochgeladen werden
