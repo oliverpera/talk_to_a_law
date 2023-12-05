@@ -1,5 +1,16 @@
 from model import execute_bot
 import chainlit as cl
+from typing import Optional
+
+@cl.password_auth_callback
+def auth_callback(username: str, password: str) -> Optional[cl.AppUser]:
+    username = 'admin'
+    password = 'admin'
+    
+    if (username, password) == ("admin", "admin"):
+        return cl.AppUser(username="admin", role="ADMIN", provider="credentials")
+    else:
+        return None
 
 @cl.on_chat_start
 async def start():
