@@ -1,0 +1,6 @@
+langchain==0.1.14
+llama_index==0.10.27
+llamaapi==0.1.36
+llmsherpa==0.1.4
+python_bcrypt==0.3.2
+transformers==4.39.3

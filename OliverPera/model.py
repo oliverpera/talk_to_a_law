@@ -30,6 +30,7 @@ def set_prompt():
     return prompt
 
 def create_question_answer_chain(llm, prompt, db):
+    
     question_answer_chain = RetrievalQA.from_chain_type(llm=llm,
                                        return_source_documents=True,
                                        retriever=db.as_retriever(search_kwargs={'k': 2}),
@@ -38,6 +39,7 @@ def create_question_answer_chain(llm, prompt, db):
                                        )
     
     return question_answer_chain
+
 
 def load_llm():
     llm = CTransformers(
@@ -56,6 +58,8 @@ def execute_bot():
                                        model_kwargs=model_kwargs)
     
     db = FAISS.load_local(db_source_path, embeddings)
+    
+    
     llm = load_llm()
     
     question_answer_prompt = set_prompt()

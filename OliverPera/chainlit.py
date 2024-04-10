@@ -1,9 +1,9 @@
 from model import execute_bot
 import chainlit as cl
 from typing import Optional
-from chainlit.client.cloud import chainlit_client
-from chainlit.types import AppUser
-from create_appuser import create_new_user
+##from chainlit.client.cloud import chainlit_client
+##from chainlit.types import AppUser
+# from create_appuser import create_new_user
 
 @cl.password_auth_callback
 def auth_callback(username: str, password: str) -> Optional[cl.AppUser]:
@@ -11,10 +11,9 @@ def auth_callback(username: str, password: str) -> Optional[cl.AppUser]:
     password = 'admin'
     
     if (username, password) == ("admin", "admin"):
-        create_new_user()
-        
+        ##create_new_user()
+    
         return cl.AppUser(username="admin", role="ADMIN", provider="credentials")
-
         
     else:
         return None
