@@ -4,7 +4,7 @@ from langchain.vectorstores import FAISS
 from langchain.llms import CTransformers
 from langchain.chains import RetrievalQA
 from transformers import AutoModelForCausalLM
-
+import replicate
 
 db_source_path = "faiss_index" 
 
@@ -26,6 +26,8 @@ def set_prompt():
     prompt = PromptTemplate(template=prompt_template,
                             input_variables=['context', 'question']
                             )
+    
+    
     
     return prompt
 
@@ -60,10 +62,24 @@ def execute_bot():
     db = FAISS.load_local(db_source_path, embeddings)
     
     
-    llm = load_llm()
+    ##llm = load_llm()
     
     question_answer_prompt = set_prompt()
-    question_answer = create_question_answer_chain(llm, question_answer_prompt, db)
-
+    #question_answer = create_question_answer_chain(llm, question_answer_prompt, db)
+    
+    
+    system_prompt = "Du bist ein hilfsbereiter, freundlicher und verständlicher Assistent. Du hast Zugriff auf eine Wissensdatenbank für das Deutsche Bankrecht und kannst Fragen beantworten."
+    
+    question_answer = replicate.run(
+        "mistralai/mixtral-8x7b-instruct-v0.1",
+        input={
+            "prompt": "Was ist ein Kreditinstitut?",
+            "system_prompt": system_prompt,
+            "db_source_path": db_source_path,
+            "model_name": model_name,
+            "model_kwargs": model_kwargs
+        },
+    )
+    
     return question_answer
 
