@@ -1,15 +1,25 @@
-FROM python:3.11
+# Verwende das offizielle Python-Image als Basis
+FROM python:latest
 
-RUN pip install --upgrade pip
-RUN mkdir -p /app/emailclassifier
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /app
 
-WORKDIR /app/talktoalaw
+# Kopiere die requirements.txt-Datei in das Arbeitsverzeichnis
+COPY requirements.txt .
 
-COPY requirements.txt /app/talktoalaw
+# Installiere die Python-Bibliotheken gemäß requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
+# Kopiere den chainlit.py-Code in das Arbeitsverzeichnis
+COPY OliverPera/chainlit.py .
+COPY OliverPera/create_appuser.py .
+COPY OliverPera/model.py .
+COPY OliverPera/sqllite3_script.py .
+COPY OliverPera/test.py .
 
-# do not change the arguments
-ENTRYPOINT ["chainlit", "run", "app.py", "--host=0.0.0.0", "--port=80", "--headless"]
 
+EXPOSE 2000
+
+# Definiere den Startbefehl
+CMD ["chainlit","run","chainlit.py","-w","--host","128.140.6.176", "--port","2000"]
 
