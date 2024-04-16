@@ -53,7 +53,7 @@ def load_llm():
     
     return llm
 
-def execute_bot():
+def execute_bot(message: str):
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
     model_kwargs = {'device': 'cpu'}
     embeddings = HuggingFaceEmbeddings(model_name=model_name, 
@@ -70,16 +70,39 @@ def execute_bot():
     
     system_prompt = "Du bist ein hilfsbereiter, freundlicher und verständlicher Assistent. Du hast Zugriff auf eine Wissensdatenbank für das Deutsche Bankrecht und kannst Fragen beantworten."
     
-    question_answer = replicate.run(
-        "mistralai/mixtral-8x7b-instruct-v0.1",
-        input={
-            "prompt": "Was ist ein Kreditinstitut?",
-            "system_prompt": system_prompt,
-            "db_source_path": db_source_path,
-            "model_name": model_name,
-            "model_kwargs": model_kwargs
-        },
-    )
+    print(message)
+    # question_answer = replicate.run(
+    #     "meta/llama-2-7b",
+    #     input={
+    #         "prompt": message,
+    #         "system_prompt": system_prompt,
+    #     },
+    # )
     
-    return question_answer
+    
+    # input = {
+    #     "prompt": "A llama walks into a bar",
+    #     "temperature": 0.95,
+    #     "max_new_tokens": 500
+    # }
+    
+    # for event in replicate.stream(
+    #     "meta/llama-2-7b",
+    #     input=input
+    # ):
+    #     print(event, end="")
+    
+    # ##print(question_answer)
+    input = {
+        "prompt": message,
+        "max_new_tokens": 1024
+    }
+
+    output = replicate.run(
+        "mistralai/mixtral-8x7b-instruct-v0.1",
+        input=input
+    )
+    print("".join(output))
+    
+    return "".join(output)
 
