@@ -1,4 +1,4 @@
-# Welcome to Chainlit and FinBot! 🚀🤖💸
+# Welcome to FinBot! 🚀🤖💸
 
 Huhu, das ist unsere erste Testversion
 
