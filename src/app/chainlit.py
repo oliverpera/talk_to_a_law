@@ -11,14 +11,17 @@ import replicate
 from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
+import os
 
-config = UserConfiguration(None, None, None, None)
+config = UserConfiguration(None, None, None, None, None)
 models = init_modeltypes()
+
 
 def update_config(settings):
     config.set_temperature(settings["Temperature"])
     config.set_select(settings["Model"])
     config.set_modelpath(get_modelpath(settings["Model"]))
+    config.set_replicate_api_key(settings["ReplicateAPIKey"])
     config.set_textinput(settings["SystemPrompt"])
     
     print(config.get_temperature(), config.get_select(), config.get_modelpath(), config.get_textinput())
@@ -31,7 +34,7 @@ def get_modelpath(model_id):
     return None
 
 
-async def accept_file(file: cl.File):
+async def accept_file():
     files = None
     while files is None:
         files = await cl.AskFileMessage(
@@ -55,7 +58,7 @@ async def start():
     user = cl.user_session.get("user")
     msg = cl.Message(content="Starting the bot...")
     await msg.send()
-
+    
     settings = await cl.ChatSettings(
         [
             Slider(
@@ -73,6 +76,11 @@ async def start():
                 initial_index=0,
             ),
             TextInput(
+                id="ReplicateAPIKey",
+                label="Replicate API Key",
+                initial="XXX-YYY-ZZZ"
+            ),
+            TextInput(
                 id="SystemPrompt", 
                 label="System Prompt", 
                 initial="Du bist ein hilfsbereiter, freundlicher und verständlicher Assistent. Du hast Zugriff auf eine Wissensdatenbank für das Deutsche Bankrecht und kannst Fragen beantworten.")
@@ -84,7 +92,7 @@ async def start():
     
     update_config(settings)
     
-    cl.user_session.set("admin", user)
+    cl.user_session.set("user", user)
 
 
 @cl.on_stop
@@ -110,6 +118,8 @@ async def on_message(message: cl.Message):
         "system_prompt": config.get_textinput(),
         "temperature": config.get_temperature(),
     }
+    
+    
         
     for event in replicate.stream(
         config.get_modelpath(),

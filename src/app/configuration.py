@@ -1,8 +1,9 @@
 class UserConfiguration:
-    def __init__(self, temperature, select, modelpath,textinput):
+    def __init__(self, temperature, select, modelpath, replicate_api_key,textinput):
         self.temperature = temperature
         self.select = select
         self.modelpath = modelpath
+        self.replicate_api_key = replicate_api_key
         self.textinput = textinput
         
     def get_temperature(self):
@@ -22,6 +23,12 @@ class UserConfiguration:
     
     def set_modelpath(self, modelpath):
         self.modelpath = modelpath
+        
+    def get_replicate_api_key(self):
+        return self.replicate_api_key
+    
+    def set_replicate_api_key(self, replicate_api_key):
+        self.replicate_api_key = replicate_api_key
 
     def get_textinput(self):
         return self.textinput
