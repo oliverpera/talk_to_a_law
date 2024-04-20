@@ -1,18 +1,10 @@
-# from chainlit import AppUser
+# from chainlit import User
 
-# async def create_new_user():
-#     app_users = [AppUser(username="admin",role="admin"), 
-#                  AppUser(username="Olli",role="admin"),
-#                  AppUser(username="Robin",role="admin"),
-#                  AppUser(username="Timon",role="admin"),
-#                  AppUser(username="Hellstern",role="admin")]
+# def create_user():
+#     admin = User(identifier="admin", metadata={"role": "admin", "provider": "credentials"})
+#     olli = User(identifier="Olli", metadata={"role": "admin", "provider": "credentials"})
+#     robin = User(identifier="Robin", metadata={"role": "admin", "provider": "credentials"})
+#     timon = User(identifier="Timon", metadata={"role": "admin", "provider": "credentials"})
+#     hellstern = User(identifier="Hellstern", metadata={"role": "admin", "provider": "credentials"})
     
-#     for user in app_users:
-#         persisted_app_user = True
-        
-#         if persisted_app_user:
-#             print(f"App user created: {persisted_app_user.username}")
-#         else:
-#             print("Failed to create app user.")
-
-    
+#     return [admin, olli, robin, timon, hellstern]

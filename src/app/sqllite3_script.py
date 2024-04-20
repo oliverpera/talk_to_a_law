@@ -54,17 +54,16 @@ def check_user(username, password):
         return None
 
 def get_users():
-    cursor.execute('''
+    x = cursor.execute('''
         SELECT * FROM benutzer
         ''')
     
-    users = cursor.fetchall()
+    users = x.fetchall()
     
-    if users:
-        for user_count in range(0, len(users)):
-            print(str(user_count) + ': ', users[user_count])
-    else:
-        print("No users exist")
+   
+    for user in users:
+        print(str(user))
+   
     
     
     
@@ -73,8 +72,18 @@ def get_users():
 # set_user('Robin', 'Robin_ist_toll')
 # set_user('Timon', 'Timon_ist_toll')
 
-get_users()
+# get_users()
 check_user('Olli', 'Olli_ist_toll')
-check_user('Timon', 'xyZ')
+# check_user('Timon', 'Timon_ist_toll')
+
+
+
+
+print(cursor.execute('''
+        SELECT username FROM benutzer
+        WHERE username = ?
+    ''', ("Olli",)).fetchone())
+
+
 
 conn.close()

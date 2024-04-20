@@ -1,7 +1,6 @@
 # from model import execute_bot
 # from chainlit.client.cloud import chainlit_client
 # from chainlit.types import AppUser
-# from create_appuser import create_new_user
 # from typing import Optional
 # from chainlit.client.base import AppUser, PersistedAppUser
 
@@ -13,13 +12,20 @@ from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
 import os
-import token
-
+# from create_appuser import create_user
+from embeddings import SpacyEmbeddingsFunction
+from prompt_templates import prompt_template
+import chromadb
 
 config = UserConfiguration(None, None, None, None, None)
 models = init_modeltypes()
 
-
+chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
+collection = chroma_client.get_collection(
+        name="char_splitter_128_o0",
+        embedding_function=SpacyEmbeddingsFunction(),
+        # metadata={"hnsw:space": "cosine"} # "l2" (default: squared L2 norm), "ip" or "cosine"
+)
 
 def update_config(settings):
     config.set_temperature(settings["Temperature"])
@@ -60,6 +66,9 @@ async def accept_file():
 @cl.on_chat_start
 async def start():   
     user = cl.user_session.get("id")
+    
+    chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
+
     msg = cl.Message(content="Starting the bot...")
     await msg.send()
     
@@ -111,16 +120,31 @@ async def setup_agent(settings):
 
     ##cl.user_session.set("admin", user)
 
-
+def set_prompt(message: cl.Message):
+    query_result = collection.query(
+        # query_embeddings=[], # embedded question / part of question # HERE: PREFORMULATE ANSWER, EMBED ANSWER, RETRIEVE REAL KNOWLEDGE ?!? # needs to be the same dimension as embedded vectors in db
+        query_texts=[message.content], # ALTERNATIVE THAN QUERYING WITH EMBEDDINGS -> CHROMA WILL AUTOMATICALLY EMBED USING EMBEDDING FUNCTION OF COLLECTION
+        n_results=4, # number of docs to retrieve
+        # where={"metadata_field": "is_equal_to_this"}, # filter metadata
+        # where_document={"$contains": "search_string"}, # filter for hard words / regexes etc.
+        # include=["documents"], # specify which data to return (embeddings is excluded by default)
+    )
+    
+    documents = query_result['documents']
+    prompt = prompt_template.format(query=message.content, context=str(documents))
+    return prompt
 
 @cl.on_message
 async def on_message(message: cl.Message):
     counter = cl.user_session.get("admin")
     msg = cl.Message(content="")
+    
+    prompt = set_prompt(message)
+    
     replicateSession = Client(api_token="r8_VncJJ6QX2BhvvDqetCCLzXpCz4CR8To1AJSMM")
         
     input = {
-        "prompt": str(message),
+        "prompt": prompt,
         "max_new_tokens": 1024,
         "system_prompt": config.get_textinput(),
         "temperature": config.get_temperature(),
@@ -152,11 +176,22 @@ async def on_message(message: cl.Message):
     
 ### chainlit bug: https://github.com/Chainlit/chainlit/issues/864
 # @cl.password_auth_callback
-# def auth_callback(username: str, password: str) -> Optional[cl.User]:
-#     if (username, password) == ("admin", "admin"):
-#         return cl.User(identifier="admin")
-#     else:
-#         return None
+# def auth_callback(username: str, password: str):
+#     # Fetch the user matching username from your database
+#     # and compare the hashed password with the value stored in the database
+#     users = create_user()
+    
+#     for user in users:
+#         if user.identifier == username:
+#             return None
+#     return user
+        
+    
+    
+    # if (username, password) == ("admin", "admin"):
+    #     return test
+    # else:
+    #     return None
 
 
 
