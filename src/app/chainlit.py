@@ -113,13 +113,11 @@ async def on_message(message: cl.Message):
     msg = cl.Message(content="")
         
     input = {
-        "prompt": message,
+        "prompt": str(message),
         "max_new_tokens": 1024,
         "system_prompt": config.get_textinput(),
         "temperature": config.get_temperature(),
     }
-    
-    
         
     for event in replicate.stream(
         config.get_modelpath(),
@@ -128,8 +126,21 @@ async def on_message(message: cl.Message):
     ):
         print(event, end="")
         await msg.stream_token(str(event))
+        
+    # answers = replicate.run(
+    #     config.get_modelpath(),
+    #     input=input
+    # )
+    # print(answers)
+    
+    # output = ''
+    # for answer in answers:
+    #     output += answer
+    
+    # msg = cl.Message(content=output)
 
     await msg.send()
+    
     
     
 ### chainlit bug: https://github.com/Chainlit/chainlit/issues/864
