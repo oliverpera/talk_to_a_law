@@ -8,13 +8,17 @@
 
 import chainlit as cl
 import replicate
+from replicate import Client
 from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
 import os
+import token
+
 
 config = UserConfiguration(None, None, None, None, None)
 models = init_modeltypes()
+
 
 
 def update_config(settings):
@@ -54,8 +58,8 @@ async def accept_file():
 
 
 @cl.on_chat_start
-async def start():    
-    user = cl.user_session.get("user")
+async def start():   
+    user = cl.user_session.get("id")
     msg = cl.Message(content="Starting the bot...")
     await msg.send()
     
@@ -107,10 +111,13 @@ async def setup_agent(settings):
 
     ##cl.user_session.set("admin", user)
 
+
+
 @cl.on_message
-async def on_message(message: cl.Message):    
+async def on_message(message: cl.Message):
     counter = cl.user_session.get("admin")
     msg = cl.Message(content="")
+    replicateSession = Client(api_token="r8_VncJJ6QX2BhvvDqetCCLzXpCz4CR8To1AJSMM")
         
     input = {
         "prompt": str(message),
@@ -119,7 +126,7 @@ async def on_message(message: cl.Message):
         "temperature": config.get_temperature(),
     }
         
-    for event in replicate.stream(
+    for event in replicateSession.stream(
         config.get_modelpath(),
         input=input,
         stream=True
@@ -138,7 +145,7 @@ async def on_message(message: cl.Message):
     #     output += answer
     
     # msg = cl.Message(content=output)
-
+    msg = cl.Message(content=str(event))
     await msg.send()
     
     
