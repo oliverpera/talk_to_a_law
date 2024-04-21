@@ -65,6 +65,32 @@ def get_users():
         print(str(user))
    
     
+def is_password_correct(username, password):
+    conn = sqlite3.connect('benutzer.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        SELECT password_hash FROM benutzer
+        WHERE username = ?
+    ''', (username,))
+    
+    password_hash = cursor.fetchone()
+
+    if password_hash:
+        if check_password(password, password_hash[0]):
+            print("Login successfully")
+            conn.close()
+            return True
+        
+        else: 
+            print("Wrong password")
+            conn.close()
+            return False 
+        
+    else:
+        print("Nein")
+        conn.close()
+        return False
+    
     
     
 # set_user('Hellstern', 'Hellstern_ist_toll')
@@ -75,15 +101,6 @@ def get_users():
 # get_users()
 check_user('Olli', 'Olli_ist_toll')
 # check_user('Timon', 'Timon_ist_toll')
-
-
-
-
-print(cursor.execute('''
-        SELECT username FROM benutzer
-        WHERE username = ?
-    ''', ("Olli",)).fetchone())
-
 
 
 conn.close()

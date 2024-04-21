@@ -12,9 +12,10 @@ from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
 import os
-# from create_appuser import create_user
+from create_appuser import create_user
 from embeddings import SpacyEmbeddingsFunction
 from prompt_templates import prompt_template
+from sqllite3_script import is_password_correct
 import chromadb
 
 config = UserConfiguration(None, None, None, None, None)
@@ -175,23 +176,22 @@ async def on_message(message: cl.Message):
     
     
 ### chainlit bug: https://github.com/Chainlit/chainlit/issues/864
-# @cl.password_auth_callback
-# def auth_callback(username: str, password: str):
-#     # Fetch the user matching username from your database
-#     # and compare the hashed password with the value stored in the database
-#     users = create_user()
-    
-#     for user in users:
-#         if user.identifier == username:
-#             return None
-#     return user
-        
+@cl.password_auth_callback
+def auth_callback(username: str, password: str):
+    # Fetch the user matching username from your database
+    # and compare the hashed password with the value stored in the database
+    users = create_user()
     
     
-    # if (username, password) == ("admin", "admin"):
-    #     return test
-    # else:
-    #     return None
+    
+    for user in users:
+        if user.identifier == username:
+            if is_password_correct(username, password):
+                    return user
+            else:
+                print("User not found")
+                return None
 
-
-
+    return None   
+    
+    
