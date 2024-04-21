@@ -22,7 +22,7 @@ from chainlit import User
 
 config = UserConfiguration(None, None, None, None, None)
 models = init_modeltypes()
-users = create_user()
+users = [User(identifier="admin", metadata={"role": "admin", "provider": "credentials"})]
 
 
 chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
@@ -188,8 +188,12 @@ def auth_callback(username: str, password: str):
     global users
     if check_user(username,password):
         for user in users:
-            user.identifier == username
-            return user
+            if user.identifier == username:
+                return user
+            else:
+                user = User(identifier=username, metadata={"role": "admin", "provider": "credentials"})
+                users.append(user)
+                return user
     else:
         print("User not found")
         return None
