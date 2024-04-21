@@ -24,6 +24,8 @@ def check_password(password, stored_hash):
     return bcrypt.checkpw(passwort_bytes, stored_hash)
 
 def set_user(username, password):
+    conn = sqlite3.connect('benutzer.db')
+    cursor = conn.cursor()
     password_hash = create_password_hash(password)
 
     cursor.execute('''
@@ -32,7 +34,9 @@ def set_user(username, password):
     ''', (username, password_hash))
     conn.commit()
     
-def check_user(username, password):    
+def check_user(username, password):
+    conn = sqlite3.connect('benutzer.db')
+    cursor = conn.cursor()    
     cursor.execute('''
         SELECT password_hash FROM benutzer
         WHERE username = ?
@@ -54,6 +58,8 @@ def check_user(username, password):
         return None
 
 def get_users():
+    conn = sqlite3.connect('benutzer.db')
+    cursor = conn.cursor()
     x = cursor.execute('''
         SELECT * FROM benutzer
         ''')

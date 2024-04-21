@@ -8,3 +8,4 @@ def create_user():
     hellstern = User(identifier="Hellstern", metadata={"role": "admin", "provider": "credentials"})
     
     return [admin, olli, robin, timon, hellstern]
+

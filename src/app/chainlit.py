@@ -3,8 +3,6 @@
 # from chainlit.types import AppUser
 # from typing import Optional
 # from chainlit.client.base import AppUser, PersistedAppUser
-
-
 import chainlit as cl
 import replicate
 from replicate import Client
@@ -16,10 +14,16 @@ from create_appuser import create_user
 from embeddings import SpacyEmbeddingsFunction
 from prompt_templates import prompt_template
 from sqllite3_script import is_password_correct
+from sqllite3_script import set_user
+from sqllite3_script import get_users
+from sqllite3_script import check_user
 import chromadb
+from chainlit import User
 
 config = UserConfiguration(None, None, None, None, None)
 models = init_modeltypes()
+users = create_user()
+
 
 chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
 collection = chroma_client.get_collection(
@@ -172,6 +176,7 @@ async def on_message(message: cl.Message):
     # msg = cl.Message(content=output)
     msg = cl.Message(content=str(event))
     await msg.send()
+    get_users()
     
     
     
@@ -180,18 +185,16 @@ async def on_message(message: cl.Message):
 def auth_callback(username: str, password: str):
     # Fetch the user matching username from your database
     # and compare the hashed password with the value stored in the database
-    users = create_user()
-    
-    
-    
-    for user in users:
-        if user.identifier == username:
-            if is_password_correct(username, password):
-                    return user
-            else:
-                print("User not found")
-                return None
+    global users
+    if check_user(username,password):
+        for user in users:
+            user.identifier == username
+            return user
+    else:
+        print("User not found")
+        return None
 
-    return None   
+ 
+ 
     
     
