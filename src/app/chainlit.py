@@ -1,25 +1,19 @@
-# from model import execute_bot
-# from chainlit.client.cloud import chainlit_client
-# from chainlit.types import AppUser
-# from typing import Optional
-# from chainlit.client.base import AppUser, PersistedAppUser
 import chainlit as cl
-import replicate
 from replicate import Client
 from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
 import os
-from create_appuser import create_user
 from embeddings import SpacyEmbeddingsFunction
 from prompt_templates import prompt_template
-from sqllite3_script import is_password_correct
-from sqllite3_script import set_user
 from sqllite3_script import get_users
 from sqllite3_script import check_user
 import chromadb
 from chainlit import User
+from dotenv import load_dotenv
 
+
+## global variables
 config = UserConfiguration(None, None, None, None, None)
 models = init_modeltypes()
 users = [User(identifier="admin", metadata={"role": "admin", "provider": "credentials"})]
@@ -48,6 +42,9 @@ def get_modelpath(model_id):
             return model.name
     return None
 
+def hide_api_key(api_key):
+    return api_key[:4] + "*" * (len(api_key) - 8) + api_key[-4:]
+
 
 async def accept_file():
     files = None
@@ -70,7 +67,7 @@ async def accept_file():
 
 @cl.on_chat_start
 async def start():   
-    user = cl.user_session.get("id")
+    user = cl.user_session.get("user")
     
     chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
 
@@ -96,7 +93,7 @@ async def start():
             TextInput(
                 id="ReplicateAPIKey",
                 label="Replicate API Key",
-                initial="XXX-YYY-ZZZ"
+                initial=hide_api_key(load_replicate_key_from_env(user.identifier))
             ),
             TextInput(
                 id="SystemPrompt", 
@@ -117,6 +114,14 @@ async def start():
 def on_stop():
     print("The user wants to stop the task!")
 
+
+
+def check_if_replicate_api_key_is_set():
+    print(config.get_replicate_api_key())
+    if config.get_replicate_api_key() is None or config.get_replicate_api_key() == "":
+        return False
+    
+    return True
 
 @cl.on_settings_update
 async def setup_agent(settings):
@@ -141,12 +146,15 @@ def set_prompt(message: cl.Message):
 
 @cl.on_message
 async def on_message(message: cl.Message):
-    counter = cl.user_session.get("admin")
+    user = cl.user_session.get("user")
     msg = cl.Message(content="")
     
+    if not check_if_replicate_api_key_is_set():
+        config.set_replicate_api_key(hide_api_key(load_replicate_key_from_env(user.identifier)))
+
     prompt = set_prompt(message)
     
-    replicateSession = Client(api_token="r8_VncJJ6QX2BhvvDqetCCLzXpCz4CR8To1AJSMM")
+    replicateSession = Client(api_token=load_replicate_key_from_env(user.identifier))
         
     input = {
         "prompt": prompt,
@@ -163,28 +171,19 @@ async def on_message(message: cl.Message):
         print(event, end="")
         await msg.stream_token(str(event))
         
-    # answers = replicate.run(
-    #     config.get_modelpath(),
-    #     input=input
-    # )
-    # print(answers)
+    # msg = cl.Message(content=str(event))
+    # await msg.send()
+    # get_users()
     
-    # output = ''
-    # for answer in answers:
-    #     output += answer
-    
-    # msg = cl.Message(content=output)
-    msg = cl.Message(content=str(event))
-    await msg.send()
-    get_users()
+
+def load_replicate_key_from_env(username):
+    load_dotenv()
+    username = username.upper()
+    return os.getenv(f"{username}_API_KEY")
     
     
-    
-### chainlit bug: https://github.com/Chainlit/chainlit/issues/864
 @cl.password_auth_callback
 def auth_callback(username: str, password: str):
-    # Fetch the user matching username from your database
-    # and compare the hashed password with the value stored in the database
     global users
     if check_user(username,password):
         for user in users:
