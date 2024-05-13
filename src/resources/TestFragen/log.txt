@@ -1,152 +1,46 @@
-len split1349
-len model answer1135
-Frage: Wem legt die Verordnung einheitliche Regeln für Aufsichtsanforderungen fest?
-Antwort: Die Verordnung legt einheitliche Regeln für Aufsichtsanforderungen fest, die im Rahmen der Richtlinie 2013/36/EU beauftragte Institute, Finanzholdinggesellschaften und gemischte Finanzholdinggesellschaften im Hinblick auf Eigenmittelanforderungen, Begrenzung von Großkrediten, Liquiditätsanforderungen, Berichts- und Offenlegungspflichten erfüllen müssen.
+-------------------
+Welche Änderungen hat die Richtlinie 2013/36/EU des Europäischen Parlaments und des Rates vom 26. Juni 2013 über den Zugang zur Tätigkeit von Kreditinstituten und die Beaufsichtigung von Kreditinstituten durch die verschiedenen Änderungsrichtlinien erfahren?
+---
+Die Richtlinie 2013/36/EU des Europäischen Parlaments und des Rates vom 26. Juni 2013 über den Zugang zur Tätigkeit von Kreditinstituten und die Beaufsichtigung von Kreditinstituten hat durch verschiedene Änderungsrichtlinien Änderungen erfahren. Die Richtlinie wurde geändert durch die Richtlinie 2014/17/EU des Europäischen Parlaments und des Rates vom 4. Februar 2014, die Richtlinie 2014/59/EU des Europäischen Parlaments und des Rates vom 15. Mai 2014, die Richtlinie (EU) 2015/2366 des Europäischen Parlaments und des Rates vom 25. November 2015, die Richtlinie (EU) 2018/843 des Europäischen Parlaments und des Rates vom 30. Mai 2018, die Richtlinie (EU) 2019/878 des Europäischen Parlaments und des Rates vom 20. Mai 2019, die Richtlinie (EU) 2019/2034 des Europäischen Parlaments und des Rates vom 27. November 2019 und die Richtlinie (EU) 2021/338 des Europäischen Parlaments und des Rates vom 16. Februar 2021. Darüber hinaus wurden auch Berichtigungen vorgenommen durch die Berichtigungen C1, C2, C3, C4, C5, C6 und C7.
+-------------------
 
-Frage: Wem gelten die Anforderungen an Eigenmittel und anzuerkennende Verbindlichkeiten gemäß der Verordnung?
-Antwort: Die Anforderungen an Eigenmittel und anzuerkennende Verbindlichkeiten gelten Abwicklungseinheiten von global systemrelevanten Instituten (G-SRI) oder bedeutenden Tochterunternehmen von Nicht-EU-G-SRI.
+-------------------
+Welche Institute fallen unter den Anwendungsbereich der Richtlinie 2013/36/EU und sind somit den Vorschriften für den Zugang zur Tätigkeit von Kreditinstituten und der Beaufsichtigung von Kreditinstituten unterworfen?
+---
+Die Richtlinie 2013/36/EU gilt für Institute, Finanzholdinggesellschaften, gemischte Finanzholdinggesellschaften und gemischte Holdinggesellschaften mit Sitz in der Union. Dies umfasst Kreditinstitute, wie zum Beispiel Banken, Sparkassen und Genossenschaftsbanken, die Bankgeschäfte betreiben und dementsprechend den Vorschriften für den Zugang zur Tätigkeit von Kreditinstituten und der Beaufsichtigung von Kreditinstituten unterworfen sind.
+-------------------
 
-Frage: Welche Bereiche der Aufsichtsvorschriften und Beaufsichtigung von Instituten fallen nicht unter die Geltungsbereich der Verordnung?
-Antwort: Die Bekanntmachungspflichten der zuständigen Behörden im Bereich der Aufsichtsvorschriften und der Beaufsichtigung von Instituten gemäß der Richtlinie 2013/36/EU fallen nicht unter die Geltungsbereich der Verordnung.
-len split1800
-len model answer1624
-Frage: Welche Behörden werden mit Befugnissen ausgestattet, um die Einhaltung der Bestimmungen der Verordnung zu gewährleisten?
-Antwort: Die zuständigen Behörden werden nach Artikel 1 Absatz 1 der Verordnung mit den in der Richtlinie 2013/36/EU und in der Verordnung genannten Befugnissen ausgestattet, um die Einhaltung der Bestimmungen dieser Verordnung zu gewährleisten. Zusätzlich werden die Abwicklungsbehörden nach Artikel 1 Absatz 2 mit den in der Richtlinie 2014/59/EU und in der Verordnung genannten Befugnissen ausgestattet, um die Einhaltung der Bestimmungen dieser Verordnung zu gewährleisten.
+-------------------
+Welche Auswirkungen haben die verschiedenen Berichtigungen (C1-C12) auf die Anwendung der Verordnung (EU) 575/2013 im deutschen Bankenrecht?
+---
+Die verschiedenen Berichtigungen (C1-C12) haben unterschiedliche Auswirkungen auf die Anwendung der Verordnung (EU) 575/2013 im deutschen Bankenrecht. 
 
-Frage: Welche Behörden arbeiten zusammen, um die Einhaltung der Anforderungen an die Eigenmittel und berücksichtigungsfähigen Verbindlichkeiten zu gewährleisten?
-Antwort: Die zuständigen Behörden und die Abwicklungsbehörden arbeiten zusammen, um die Einhaltung der Anforderungen an die Eigenmittel und berücksichtigungsfähigen Verbindlichkeiten zu gewährleisten, wie in Artikel 1 Absatz 3 der Verordnung festgelegt.
+Die Berichtigungen C1 bis C4 betreffen die ursprüngliche Fassung der Verordnung und korrigieren Fehler in der ursprünglichen Fassung. Diese Berichtigungen haben somit keine wesentlichen Auswirkungen auf die Anwendung der Verordnung im deutschen Bankenrecht. 
 
-Frage: Welche Behörden sind für den regelmäßigen und zuverlässigen Informationsaustausch zuständig, um die Einhaltung der Verpflichtungen im Rahmen ihrer jeweiligen Befugnisse zu gewährleisten?
-Antwort: Der durch Artikel 42 der Verordnung (EU) Nr. 806/2014 des Europäischen Parlaments und des Rates geschaffene Einheitliche Abwicklungsausschuss und die Europäische Zentralbank sind für den regelmäßigen und zuverlässigen Informationsaustausch zuständig, um die Einhaltung der Verpflichtungen im Rahmen ihrer jeweiligen Befugnisse zu gewährleisten, wie in Artikel 1 Absatz 4 der Verordnung festgelegt.
-len split2101
-len model answer993
-Frage:
-Was verhindert die Verordnung nicht in Bezug auf Institute und die von ihnen gehaltenen Eigenmittel und Eigenmittelkomponenten?
+Die Berichtigungen C5 bis C8 korrigieren Fehler in der Verordnung, die durch die Änderungen durch die Verordnung (EU) 2019/876 und die Verordnung (EU) 2019/630 eingeführt wurden. Diese Berichtigungen haben Auswirkungen auf die Anwendung der Verordnung im deutschen Bankenrecht, insbesondere im Hinblick auf die Eigenmittel und die Liquiditätsanforderungen für Kreditinstitute. 
 
-Antwort:
-Die Verordnung hindert Institute nicht daran, mehr Eigenmittel und Eigenmittelkomponenten zu halten als in der Verordnung gefordert oder strengere als die in der Verordnung festgelegten Maßnahmen anzuwenden.
+Die Berichtigungen C9 und C10 korrigieren Fehler in der Verordnung, die durch die Änderungen durch die Verordnung (EU) 2019/2033 eingeführt wurden. Diese Berichtigungen haben Auswirkungen auf die Anwendung der Verordnung im deutschen Bankenrecht, insbesondere im Hinblick auf die Offenlegungspflichten von Kreditinstituten. 
 
-Frage:
-Welche europäische Richtlinie wird im Text in Bezug auf die Festlegung eines Rahmens für die Sanierung und Abwicklung von Kreditinstituten und Wertpapierfirmen erwähnt?
+Die Berichtigung C11 korrigiert Fehler in der Verordnung, die durch die Änderungen durch die Verordnung (EU) 2022/2036 eingeführt wurden. Diese Berichtigung hat Auswirkungen auf die Anwendung der Verordnung im deutschen Bankenrecht, insbesondere im Hinblick auf die Anforderungen an die Risikogouvernance von Kreditinstituten. 
 
-Antwort:
-Richtlinie 2014/59/EU des Europäischen Parlaments und des Rates vom 15. Mai 2014
+Die Berichtigung C12 korrigiert Fehler in der ursprünglichen Fassung der Verordnung und hat somit keine wesentlichen Auswirkungen auf die Anwendung der Verordnung im deutschen Bankenrecht.
+-------------------
 
-Frage:
-Welche europäische Verordnung wird im Text in Bezug auf die Festlegung einheitlicher Vorschriften und Verfahren für die Abwicklung von Kreditinstituten und bestimmten Wertpapierfirmen im Rahmen eines einheitlichen Abwicklungsmekanismus und Abwicklungsfonds erwähnt?
+-------------------
+Welche Arten von Instituten und Unternehmen fallen unter den Anwendungsbereich der Verordnung (EU) Nr. 575/2013 über Aufsichtsanforderungen an Kreditinstitute?
+---
+Die Verordnung (EU) Nr. 575/2013 über Aufsichtsanforderungen an Kreditinstitute gilt für im Rahmen der Richtlinie 2013/36/EU beaufsichtigte Institute, Finanzholdinggesellschaften und gemischte Finanzholdinggesellschaften, Abwicklungseinheiten, bei denen es sich um global systemrelevante Institute (G-SRI) handelt oder die Teil von G-SRI sind, sowie bedeutende Tochterunternehmen von Nicht-EU-G-SRI.
+-------------------
 
-Antwort:
-Verordnung (EU) Nr. 806/2014 des Europäischen Parlaments und des Rates vom 15. Juli 2014
-len split5000
-len model answer1029
-Frage: Was versteht man unter einem "Kreditinstitut" im Sinne dieser Verordnung?
-Antwort: Ein Kreditinstitut ist ein Unternehmen, das entweder Einlagen oder andere rückzahlbare Gelder des Publikums entgegennimmt und Kredite für eigene Rechnung gewährt oder eine der in Anhang I Abschnitt A Nummern 3 und 6 der Richtlinie 2014/65/EU genannten Tätigkeiten ausübt, sofern bestimmte Voraussetzungen erfüllt sind. Dazu gehören beispielsweise Investmentfirmen, Wertpapierfirmen und Unternehmen, die Finanzdienstleistungen anbieten.
+-------------------
+Was ist der Zweck des Achten Abschnitts im Gesetz über das Kreditwesen, der Übergangs- und Schlussvorschriften enthält?
+---
+Der Achte Abschnitt des Gesetzes über das Kreditwesen enthält Übergangs- und Schlussvorschriften. Der Zweck dieses Abschnitts ist es, Regelungen für den Übergang von bestehenden Vorschriften auf neue Rechtslagen zu treffen, um sicherzustellen, dass die Umstellung auf neue Gesetze und Verordnungen reibungslos erfolgt. Hier werden insbesondere Bestimmungen für den Übergang von bestehenden Kreditinstituten, die Überleitung von Rechtsvorschriften und die Aufhebung oder Änderung von Rechtsvorschriften getroffen. Zudem enthält dieser Abschnitt Sonderregelungen für bestimmte Bereiche, wie zum Beispiel das Gebiet der ehemaligen DDR oder die Deutsche Bundespost. Durch diese Übergangs- und Schlussvorschriften soll gewährleistet werden, dass die neuen Rechtsvorschriften ordnungsgemäß umgesetzt werden können.
+-------------------
 
-Frage: Wie ist der Begriff "Wertpapierfirma" in diesem Kontext definiert?
-Antwort: Eine Wertpapierfirma ist eine Wertpapierfirma im Sinne des Artikels 4 Absatz 1 Nummer 1 der Richtlinie 2014/65/EU, die gemäß der genannten Richtlinie zugelassen wurde, mit Ausnahme von Kreditinstituten.
+-------------------
+Was sind die Voraussetzungen, damit ein Unternehmen als Kreditinstitut im Sinne des § 1 Abs. 1 KWG gilt?
+---
+Ein Unternehmen gilt als Kreditinstitut im Sinne des § 1 Abs. 1 KWG, wenn es Bankgeschäfte gewerbsmäßig oder in einem Umfang betreibt, der einen in kaufmännischer Weise eingerichteten Geschäftsbetrieb erfordert. Bankgeschäfte sind insbesondere die Annahme fremder Gelder als Einlagen oder anderer unbedingt rückzahlbarer Gelder des Publikums, die Gewährung von Gelddarlehen und Akzeptkrediten, der Ankauf von Wechseln und Schecks, die Anschaffung und die Veräußerung von Finanzinstrumenten im eigenen Namen für fremde Rechnung, die Verwahrung und die Verwaltung von Wertpapieren für andere, die Tätigkeit als Zentralverwahrer, die Eingehung der Verpflichtung, zuvor veräußerte Darlehensforderungen vor Fälligkeit zurückzuerwerben, die Übernahme von Bürgschaften, Garantien und sonstigen Gewährleistungen für andere, die Durchführung des bargeldlosen Scheckeinzugs, des Wechseleinzugs und die Ausgabe von Reiseschecks, die Übernahme von Finanzinstrumenten für eigenes Risiko zur Plazierung oder die Übernahme gleichwertiger Garantien, und die Tätigkeit als zentrale Gegenpartei.
+-------------------
 
-Frage: Was ist ein "Institut" laut dieser Verordnung?
-Antwort: Ein Institut ist ein gemäß Artikel 8 der Richtlinie 2013/36/EU zugelassenes Kreditinstitut oder ein in Artikel 8a Absatz 3 hierzu genanntes Unternehmen.
-len split5000
-len model answer3023
-Frage: Was ist das "Modellrisiko" im Sinne des Artikels 3 Absatz 1 Nummer 11 der Richtlinie 2013/36/EU?
-Antwort: Das Modellrisiko ist das Risiko, das durch die Verwendung von internen Modellen zur Messung und Bewertung von Risiken entsteht.
-
-Frage: Was ist ein "Originator" im Sinne des Artikels 2 Nummer 3 der Verordnung (EU) 2017/2402?
-Antwort: Ein Originator ist eine Partei, die ein Darlehen oder ein Finanzierungsinstrument ausgibt und das Risiko der Rückzahlung trägt.
-
-Frage: Was ist ein "Sponsor" im Sinne des Artikels 2 Nummer 5 der Verordnung (EU) 2017/2402?
-Antwort: Ein Sponsor ist eine Partei, die die Strukturierung, das Angebot und die Platzierung eines Verbriefungsinstruments unterstützt, ohne jedoch das Darlehen oder Finanzierungsinstrument selbst auszugeben.
-
-Frage: Was ist ein "ursprünglicher Kreditgeber" im Sinne des Artikels 2 Nummer 20 der Verordnung (EU) 2017/2402?
-Antwort: Ein ursprünglicher Kreditgeber ist eine Partei, die einem Darlehensnehmer ein Darlehen gewährt hat und das Darlehen an einen Special Purpose Vehicle (SPV) verkauft hat.
-
-Frage: Was ist ein "Mutterunternehmen" im Sinne der Artikel 1 und 2 der Richtlinie 83/349/EWG?
-Antwort: Ein Mutterunternehmen ist ein Unternehmen, das direkt oder indirekt die Mehrheit der Stimmrechte an einem anderen Unternehmen hat, das Recht, die Mehrheit der Mitglieder des Verwaltungs-, Leitungs- oder Aufsichtsrats zu ernennen oder das Recht, einen beherrschenden Einfluss auf ein anderes Unternehmen auszuüben.
-
-Frage: Was ist ein "Tochterunternehmen" im Sinne der Artikel 1 und 2 der Richtlinie 83/349/EWG?
-Antwort: Ein Tochterunternehmen ist ein Unternehmen, das direkt oder indirekt von einem anderen Unternehmen abhängig ist, das die Mehrheit der Stimmrechte an diesem Unternehmen hält, das Recht hat, die Mehrheit der Mitglieder des Verwaltungs-, Leitungs- oder Aufsichtsrats zu ernennen oder das Recht hat, einen beherrschenden Einfluss auf dieses Unternehmen auszuüben.
-
-Frage: Was ist eine "Zweigstelle" im Sinne der Verordnung (EU) 2017/2402?
-Antwort: Eine Zweigstelle ist eine Betriebsstätte, die einen rechtlich unselbständigen Teil eines Instituts bildet und sämtliche Geschäfte oder einen Teil der Geschäfte, die mit der Tätigkeit eines Instituts verbunden sind, unmittelbar betreibt.
-
-Frage: Was ist ein "Anbieter von Nebendienstleistungen" im Sinne der Verordnung (EU) 2017/2402?
-Antwort: Ein Anbieter von Nebendienstleistungen ist ein Unternehmen, dessen Haupttätigkeit im Besitz oder in der Verwaltung von Immobilien, der Verwaltung von Datenverarbeitungsdiensten oder einer ähnlichen Tätigkeit besteht, die im Verhältnis zur Haupttätigkeit eines oder mehrerer Institute den Charakter einer Nebentätigkeit hat.
-
-Frage: Was ist eine "Vermögensverwaltungsgesellschaft" im Sinne des Artikels 2 Nummer 5 der Richtlinie 2002/87/EG oder einen AFIM im Sinne des Artikels 4 Nummer 1 Buchstabe b der Richtlinie 2011/61/EU?
-Antwort: Eine Vermögensverwaltungsgesellschaft ist eine Gesellschaft, die Vermögenswerte für andere verwaltet und
-len split5000
-len model answer2048
-Frage: Was versteht man unter einem Finanzinstitut nach der Richtlinie 2013/36/EU?
-Antwort: Ein Finanzinstitut ist ein Unternehmen, das weder ein Institut noch eine reine Industrieholdinggesellschaft ist und dessen Haupttätigkeit entweder im Erwerb von Beteiligungen oder in der Durchführung von Geschäften besteht, die in Anhang I Nummern 2 bis 12 und 15 der Richtlinie 2013/36/EU aufgeführt sind. Hierzu zählen beispielsweise Wertpapierfirmen, Finanzholdinggesellschaften, gemischte Finanzholdinggesellschaften, Investmentholdinggesellschaften, Zahlungsinstitute und Vermögensverwaltungsgesellschaften. Nicht eingeschlossen sind hingegen Versicherungsholdinggesellschaften und gemischte Versicherungsholdinggesellschaften.
-
-Frage: Was sind Unternehmen der Finanzbranche nach der Richtlinie 2009/138/EG?
-Antwort: Unternehmen der Finanzbranche sind gemäß Artikel 212 Absatz 1 Buchstaben a bis l der Richtlinie 2009/138/EG Instituten, Finanzinstituten, in die konsolidierte Finanzlage eines Instituts einbezogenen Anbietern von Nebendienstleistungen, Versicherungsunternehmen, Drittland-Versicherungsunternehmen, Rückversicherungsunternehmen, Drittland-Rückversicherungsunternehmen, Versicherungs-Holdinggesellschaften, gemäß den Bedingungen des Artikels 4 der Richtlinie 2009/138/EG ausgenommenen Unternehmen sowie Drittlandsunternehmen, deren Hauptgeschäftstätigkeit der eines Unternehmens unter den Buchstaben a bis k vergleichbar ist.
-
-Frage: Was ist ein Mutterinstitut in einem Mitgliedstaat nach der Richtlinie 2013/36/EU?
-Antwort: Ein Mutterinstitut in einem Mitgliedstaat ist ein Institut in einem Mitgliedstaat, das ein Institut, ein Finanzinstitut oder einen Anbieter von Nebendienstleistungen als Tochter hat oder eine Beteiligung an einem Institut, einem Finanzinstitut oder einem Anbieter von Nebendienstleistungen hält und nicht selbst Tochterunternehmen eines anderen im selben Mitgliedstaat zugelassenen Instituts oder einer im selben Mitgliedstaat errichteten Finanzholdinggesellschaft oder gemischten Finanzholdinggesellschaft ist.
-len split5000
-len model answer1836
-Frage: Was versteht man unter einer "qualifizierten Beteiligung" im deutschen Bankenrecht?
-Antwort: Eine "qualifizierte Beteiligung" liegt im deutschen Bankenrecht vor, wenn eine Person direkt oder indirekt Anteile an einem Unternehmen hält, die mindestens 10 % des Kapitals oder der Stimmrechte dieses Unternehmens repräsentieren oder die ihr die Wahrnehmung eines maßgeblichen Einflusses auf die Geschäftsführung dieses Unternehmens ermöglichen.
-
-Frage: Was ist unter "Kontrolle" im Sinne des Artikels 1 der Richtlinie 83/349/EWG zu verstehen?
-Antwort: Unter "Kontrolle" im Sinne des Artikels 1 der Richtlinie 83/349/EWG wird das Verhältnis zwischen einem Mutter- und einem Tochterunternehmen verstanden, oder das Verhältnis zwischen einer natürlichen oder juristischen Person und einem Unternehmen, das den Rechnungslegungsstandards der Verordnung (EU) Nr. 1606/2002 unterliegt, oder ein vergleichbares Verhältnis zwischen einer natürlichen oder juristischen Person und einem Unternehmen.
-
-Frage: Was ist der Unterschied zwischen einer "Gruppe verbundener Kunden" und einer "enge Verbindung" im deutschen Bankenrecht?
-Antwort: Eine "Gruppe verbundener Kunden" liegt im deutschen Bankenrecht vor, wenn zwei oder mehr natürliche oder juristische Personen im Hinblick auf das Risiko eine Einheit bilden, weil eine von ihnen über eine direkte oder indirekte Kontrolle über die andere oder die anderen verfügt. Eine "enge Verbindung" hingegen liegt vor, wenn zwei oder mehr natürliche oder juristische Personen auf eine der folgenden Weisen miteinander verbunden sind: a) über eine Beteiligung in Form des direkten Haltens oder durch Kontrolle von mindestens 20 % der Stimmrechte oder des Kapitals an einem Unternehmen, b) durch Kontrolle, c) über ein dauerhaftes Kontrollverhältnis beider oder aller mit ein und derselben dritten Person.
-len split5000
-len model answer1286
-Frage: Was ist das operationelle Risiko im Bankenwesen?
-Antwort: Das operationelle Risiko ist das Risiko von Verlusten, die durch die Unangemessenheit oder das Versagen von internen Verfahren, Menschen und Systemen oder durch externe Ereignisse verursacht werden, einschließlich Rechtsrisiken.
-
-Frage: Was ist eine Kreditrisikominderung im deutschen Bankenrecht?
-Antwort: Eine Kreditrisikominderung ist ein Verfahren, das ein Institut einsetzt, um das mit einer oder mehreren Risikopositionen, die es im Bestand behält, verbundene Kreditrisiko herabzusetzen.
-
-Frage: Was ist eine Besicherung mit Sicherheitsleistung im Sinne des Bankenrechts?
-Antwort: Eine Besicherung mit Sicherheitsleistung ist ein Verfahren der Kreditrisikominderung, bei dem sich das mit der Risikoposition eines Instituts verbundene Kreditrisiko dadurch vermindert, dass das Institut das Recht hat, bei Ausfall der Gegenpartei oder bei bestimmten anderen, mit der Gegenpartei zusammenhängenden Kreditereignissen bestimmte Vermögenswerte oder Beträge zu verwerten, ihren Transfer oder ihre Aneignung zu erwirken oder sie einzubehalten oder aber den Risikopositionsbetrag auf die Differenz zwischen diesem und dem Betrag einer Forderung gegen das Institut herabzusetzen bzw. diesen durch diese Differenz zu ersetzen.
-len split5000
-len model answer3026
-Frage: Was ist eine Verbriefungszweckgesellschaft im Sinne des Artikels 2 Nummer 2 der Verordnung (EU) 2017/2402?
-Antwort: Eine Verbriefungszweckgesellschaft ist ein Unternehmen oder Rechtsträger, der/die ausschließlich oder nahezu ausschließlich dazu bestimmt ist, Vermögenswerte oder Risiken im Rahmen einer Verbriefung zu übernehmen, zu halten oder zu übertragen und der/das nicht im Rahmen seiner normalen Geschäftstätigkeit Finanzdienstleistungen für Dritte erbringt.
-
-Frage: Was ist eine Tranche im Sinne des Artikels 2 Nummer 6 der Verordnung (EU) 2017/2402?
-Antwort: Eine Tranche ist ein Teil eines Verbriefungsvehikels, der durch einen Teil der Vermögenswerte oder Risiken des Verbriefungsvehikels besichert ist und dessen Inhaber einen Anspruch auf einen Teil der Erträge und/oder des Kapitals des Verbriefungsvehikels hat.
-
-Frage: Was versteht man unter einer Bewertung zu Marktpreisen?
-Antwort: Eine Bewertung zu Marktpreisen ist die Bewertung von Positionen auf der Grundlage einfach feststellbarer Glattstellungspreise, die aus neutralen Quellen bezogen werden, wie Börsenkursen, über Handelsysteme angezeigten Preisen oder Quotierungen von verschiedenen unabhängigen, angesehenen Brokern.
-
-Frage: Was versteht man unter einer Bewertung zu Modellpreisen?
-Antwort: Eine Bewertung zu Modellpreisen ist jede Bewertung, die aus einem oder mehreren Marktwerten abgeleitet, extrapoliert oder auf andere Weise errechnet werden muss.
-
-Frage: Was ist der Prozess der unabhängigen Preisüberprüfung?
-Antwort: Der Prozess der unabhängigen Preisüberprüfung ist die regelmäßige Überprüfung von Marktpreisen und Modellparametern auf Exaktheit und Unabhängigkeit.
-
-Frage: Was sind anrechenbare Eigenmittel im Sinne des Artikels 25 und 71 der Verordnung (EU) 2017/2402?
-Antwort: Anrechenbare Eigenmittel sind die Summe folgender Komponenten: a) für die Zwecke des Teils 2 Titel III: i) Kernkapital im Sinne des Artikels 25 ohne die Abzüge nach Artikel 36 Absatz 1 Buchstabe k Ziffer i, ii) Ergänzungskapital im Sinne des Artikels 71 in Höhe von höchstens einem Drittel des nach Ziffer i berechneten Kernkapitals; b) für die Zwecke des Artikels 97: i) Kernkapital im Sinne des Artikels 25, ii) Ergänzungskapital im Sinne des Artikels 71 in Höhe von höchstens einem Drittel des Kernkapitals.
-
-Frage: Was ist eine anerkannte Börse im Sinne des Artikels 2 Nummer 10 der Verordnung (EU) 2017/2402?
-Antwort: Eine anerkannte Börse ist eine Börse, die die folgenden Bedingungen erfüllt: a) Sie ist ein geregelter Markt oder ein Markt eines Drittlands, der gemäß dem Verfahren nach Artikel 25 Absatz 4 Buchstabe a der Richtlinie 2014/65/EU als einem geregelten Markt gleichwertig angesehen wird; b) sie verfügt über einen Clearingmechanismus, der für die in Anhang II genannten Geschäfte eine tägliche Berechnung der Einschussforderungen vorsieht und damit nach Auffassung der zuständigen Behörden einen angemessenen Schutz bietet.
-
-Frage: Was sind freiwillige Altersversorgungsleistungen?
-Antwort: Freiwillige Altersversorgungsleistungen
-len split5000
-len model answer1910
-Frage: Was ist eine Rückkaufsvereinbarung und was ist eine umgekehrte Rückkaufsvereinbarung im deutschen Bankenrecht?
-Antwort: Im deutschen Bankenrecht ist eine Rückkaufsvereinbarung ein Geschäft, bei dem eine Partei (Institut) Wertpapiere oder Waren an eine andere Partei veräußert und verpflichtet sich, diese zu einem späteren Zeitpunkt zu einem festen Preis zurückzukaufen. Eine umgekehrte Rückkaufsvereinbarung hingegen ist das Geschäft, bei dem die andere Partei die Wertpapiere oder Waren erwirbt und sich verpflichtet, diese zu einem späteren Zeitpunkt zum festen Preis an das Institut zurückzugeben.
-
-Frage: Was versteht man unter einem "Pensionsgeschäft" und was ist der Unterschied zwischen einer "einfachen Rückkaufsvereinbarung" und einem "Korb von Vermögenswerten"?
-Antwort: Ein "Pensionsgeschäft" ist im deutschen Bankenrecht ein Geschäft, das als "Rückkaufsvereinbarung" oder "umgekehrte Rückkaufsvereinbarung" gilt. Eine "einfache Rückkaufsvereinbarung" ist ein Pensionsgeschäft mit einem einzigen Vermögenswert oder mit ähnlichen nicht-komplexen Vermögenswerten, während ein "Korb von Vermögenswerten" ein Pensionsgeschäft mit mehreren Vermögenswerten ist.
-
-Frage: Was ist ein "Handelsbuch" und was versteht man unter "Positionen, die mit Handelsabsicht gehalten werden"?
-Antwort: Ein "Handelsbuch" ist im deutschen Bankenrecht ein Begriff, der alle Positionen in Finanzinstrumenten und Waren umfasst, die ein Institut entweder mit Handelsabsicht oder zur Absicherung von mit Handelsabsicht gehaltenen Positionen hält. "Positionen, die mit Handelsabsicht gehalten werden" sind Positionen, die entweder für den Eigenhandel oder für die Kundenbetreuung und Marktpflege gehalten werden, zum kurzfristigen Wiederverkauf bestimmt sind, oder bei denen die Absicht besteht, aus bestehenden oder erwarteten kurzfristigen Kursunterschieden oder aus anderen Kurs- oder Zinschwankungen Profit zu ziehen.
-len split5000
-len model answer1150
-Frage: Was sind die Bestandteile der Basiseigenmittel von Unternehmen, die den Anforderungen der Richtlinie 2009/138/EG unterliegen, wenn diese Bestandteile gemäß Artikel 94 Absatz 1 jener Richtlinie in die Klasse "Tier 1" eingestuft werden?
-Antwort: Diese Bestandteile werden als "eigenes Kernkapital von Unternehmen" bezeichnet.
-
-Frage: Was sind die Bestandteile der Basiseigenmittel von Unternehmen, die den Anforderungen der Richtlinie 2009/138/EG unterliegen, wenn diese Bestandteile gemäß Artikel 94 Absatz 1 jener Richtlinie in die Klasse "Tier 1" eingestuft werden und die Einbeziehung dieser Bestandteile durch gemäß Artikel 99 jener Richtlinie erlassene delegierte Rechtsakte begrenzt wird?
-Antwort: Diese Bestandteile werden als "zusätzliches Kernkapital von Versicherungsunternehmen" bezeichnet.
-
-Frage: Was sind die Bestandteile der Basiseigenmittel von Unternehmen, die den Anforderungen der Richtlinie 2009/138/EG unterliegen, wenn diese Bestandteile gemäß Artikel 94 Absatz 2 jener Richtlinie in die Klasse "Tier 2" eingestuft werden?
-Antwort: Diese Bestandteile werden als "Ergänzungskapital von Versicherungsunternehmen" bezeichnet.
