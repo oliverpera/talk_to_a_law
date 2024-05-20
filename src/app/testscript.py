@@ -130,7 +130,6 @@ if __name__ == '__main__':
                             
                             if count % 10 == 0:
                                 df_output.to_json(f'../resources/Testset/output_{collection}{index}.json')
-                                index += 1
                             
                             count+=1
                             # df_ouput = df_output.append(result, ignore_index=True)
