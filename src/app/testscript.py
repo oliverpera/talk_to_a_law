@@ -1,6 +1,6 @@
 
 import pandas as pd
-import chromadb
+from chromadb import Documents, EmbeddingFunction, Embeddings
 from prompt_templates import prompt_template, prompt_template_role_prompting, prompt_template_zero_shot, prompt_template_one_shot
 from replicate import Client
 from embeddings import SpacyEmbeddingsFunction
@@ -11,10 +11,24 @@ from prompt_templates import prompt_template, prompt_template_role_prompting, pr
 from replicate import Client
 from embeddings import SpacyEmbeddingsFunction
 import os
+import spacy
 
-# def test_script():
-#     pass
+replicateSession = Client()
+class ReplicateEmbeddingsFunction(EmbeddingFunction):
+    def __call__(self, input: Documents) -> Embeddings:
+        embeddings = [replicateSession.run(
+            "replicate/all-mpnet-base-v2:b6b7585c9640cd7a9572c6e129c9549d79c9c31f0d3fdce7baac7c67ca38f305",
+            input={"text": document},
+        )[0]['embedding'] for document in input]
+        return embeddings
+replicate_ef = ReplicateEmbeddingsFunction()
 
+class SpacyEmbeddingsFunction(EmbeddingFunction):
+    def __call__(self, input: Documents) -> Embeddings:
+        nlp = spacy.load("de_core_news_lg") # md , lg
+        embeddings = [nlp(document).vector.tolist() for document in input]
+        return embeddings
+spacy_ef = SpacyEmbeddingsFunction()
 
 
 def set_prompt(collection, question, prompt_templ):
@@ -22,9 +36,6 @@ def set_prompt(collection, question, prompt_templ):
         # query_embeddings=[], # embedded question / part of question # HERE: PREFORMULATE ANSWER, EMBED ANSWER, RETRIEVE REAL KNOWLEDGE ?!? # needs to be the same dimension as embedded vectors in db
         query_texts=[question], # ALTERNATIVE THAN QUERYING WITH EMBEDDINGS -> CHROMA WILL AUTOMATICALLY EMBED USING EMBEDDING FUNCTION OF COLLECTION
         n_results=4, # number of docs to retrieve
-        # where={"metadata_field": "is_equal_to_this"}, # filter metadata
-        # where_document={"$contains": "search_string"}, # filter for hard words / regexes etc.
-        # include=["documents"], # specify which data to return (embeddings is excluded by default)
     )
     
     documents = query_result['documents']            
@@ -33,36 +44,14 @@ def set_prompt(collection, question, prompt_templ):
     return prompt
     
 def get_collection(name):
-    # case:
-        #### EMBEDDING FUNCTION HINZUFÜGEN
-    return chroma_client.get_collection(name=name, embedding_function=SpacyEmbeddingsFunction())
+    if name.endswith("replicate"):
+        return chroma_client.get_collection(name=name) ## to check / add embedding_function=ReplicateEmbeddingsFunction()
+    
+    if name.endswith("spacy"):
+        return chroma_client.get_collection(name=name) ## to check / add embedding_function=SpacyEmbeddingsFunction()
+    
+    return ValueError("Invalid embedding")
 
-
-# if __name__ == '__main__':
-    
-#     # initialize lists
-#     collection_list = ['char_splitter_128_o0']
-#     models_list = ['meta/llama-2-7b-chat', 'mistralai/mixtral-8x7b-instruct-v0.1']
-#     prompt_list = [prompt_template_role_prompting, prompt_template_zero_shot, prompt_template_one_shot]
-    
-#     # chroma client    
-#     chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
-
-
-#     # source of questions and answers
-#     source_qa = '../resources/TestFragen/'
-#     df = pd.read_json(source_qa + 'CELEX_02013L0036-20220101_DE_TXT.json')
-    
-    
-    
-    
-#     df_output = pd.DataFrame(columns=['collection', 'model', 'question', 'prompt' 'answer', 'answer_with_context'])
-
-    
-    
-#     print(df.head())
-#     print(df.iloc[2]['question'])
-#     print(df.iloc[2]['answer'])
     
 def set_prompt(collection, question, prompt_templ):
     query_result = collection.query(
@@ -112,18 +101,19 @@ def process_question(collection, model, question, answer, prompt_template, sourc
 
 if __name__ == '__main__':
     # initialize lists
-    collection_list = ['char_splitter_128_o0']
-    models_list = ['meta/llama-2-7b-chat', 'mistralai/mixtral-8x7b-instruct-v0.1']
-    prompt_list = [prompt_template_role_prompting, prompt_template_zero_shot, prompt_template_one_shot]
+    collection_list = ['char_splitter_1024_o128_replicate', 'char_splitter_1024_o128_spacy', 'article_regex_splitter_spacy', 'article_regex_splitter_replicate', 'semantic_splitter_spacy', 'semantic_splitter_replicate']
+    models_list = ['mistralai/mixtral-8x7b-instruct-v0.1'] ## more models to add
+    prompt_list = [prompt_template_role_prompting, prompt_template_zero_shot, prompt_template_one_shot] ## to extend
         
     # chroma client    
     chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
+    
     # source of questions and answers
     source_qa = '../resources/TestFragen/'
-    # df = pd.read_json(source_qa + 'CELEX_02013L0036-20220101_DE_TXT.json')
         
     df_output = pd.DataFrame(columns=['collection', 'model', 'question', 'prompt', 'answer', 'answer_with_context'])
     count = 0
+    index = 1
     for collection in collection_list:
         for model in models_list:
             for filename in os.listdir(source_qa):
@@ -138,9 +128,10 @@ if __name__ == '__main__':
                             df_1 = pd.DataFrame(result)
                             df_output = pd.concat([df_output, df_1], ignore_index=True)
                             
-                            if count == 5:
-                                df_output.to_json(f'../resources/Testset/output_{collection}.json')
-                                break
+                            if count == 10:
+                                df_output.to_json(f'../resources/Testset/output_{collection}{index}.json')
+                                index += 1
+                            
                             count+=1
                             # df_ouput = df_output.append(result, ignore_index=True)
         
