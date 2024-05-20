@@ -128,7 +128,7 @@ if __name__ == '__main__':
                             df_1 = pd.DataFrame(result)
                             df_output = pd.concat([df_output, df_1], ignore_index=True)
                             
-                            if count == 10:
+                            if count % 10 == 0:
                                 df_output.to_json(f'../resources/Testset/output_{collection}{index}.json')
                                 index += 1
                             
