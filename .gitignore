@@ -2,21 +2,19 @@
 *.pkl
 *.env
 *.pyc
-# Logs
-logs
+*.sqlite3
+*.pickle
+*.bin
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
 node_modules
 dist
 dist-ssr
 *.local
-
-# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -26,5 +24,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.bak
 
 env
