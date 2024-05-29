@@ -137,7 +137,7 @@ for split in splitter:
             finaldf.loc[len(finaldf)] = Newd
             print(finaldf)
             print(result)
-            finaldf.to_excel ("Cosin.xlsx", index=False)
+            
             
 
-            
+finaldf.to_excel ("Cosin.xlsx", index=False)          
