@@ -132,9 +132,9 @@ for split in splitter:
             'Cosin': [Cosin]
                 }
 
-                
+            finaldfad = pd.DataFrame(Newd)
 
-            finaldf._append(Newd,ignore_index=True)
+            finaldf._append(finaldfad,ignore_index=True)
             print(result)
             finaldf.to_excel ("Cosin.xlsx", index=False)
             
