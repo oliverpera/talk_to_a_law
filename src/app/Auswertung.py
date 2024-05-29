@@ -134,7 +134,8 @@ for split in splitter:
 
             finaldfad = pd.DataFrame(Newd)
 
-            finaldf._append(finaldfad,ignore_index=True)
+            finaldf.loc[len(finaldf)] = Newd
+            print(finaldf)
             print(result)
             finaldf.to_excel ("Cosin.xlsx", index=False)
             
