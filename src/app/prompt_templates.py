@@ -17,6 +17,8 @@ template = """
     ---
     """
 
+
+
 prompt_template = PromptTemplate(
         input_variables=["query", "context"],
         template=template,
@@ -27,21 +29,24 @@ prompt_template = PromptTemplate(
 # Prompt templates for role prompting
 ####################################################################################################
 
-template_role_prompting = """
-    Beantworte folgende Frage in deutscher Sprache:
+template_role = """
+    Als Professor für Bankrecht bist du speziell darauf ausgerichtet, komplexe rechtliche Fragen mit hoher Genauigkeit und Fachkenntnis zu beantworten. Deine Aufgabe besteht darin, präzise und juristisch korrekte Informationen zu liefern, basierend auf den bereitgestellten Details.
+    
     ---
     {query}
     ---
 
-    Nutze hierfür folgenden Kontext:
+    Verwende den nachfolgenden Kontext, um deine Antwort zu informieren und zu veranschaulichen:
     ---
     {context}
     ---
+
+    Deine Antwort sollte in Form eines detaillierten Fließtexts vorliegen, der ausschließlich auf die gestellte Frage bezogen ist. Achte darauf, dass deine Antwort nicht durch unnötige Kommentare oder zusätzliche Informationen beeinträchtigt wird. Ziel ist es, eine klare, prägnante und direkt auf die Frage zugeschnittene Antwort zu liefern.     
     """
 
 prompt_template_role_prompting = PromptTemplate(
         input_variables=["query", "context"],
-        template=template,
+        template=template_role,
 )
 
 
@@ -49,21 +54,24 @@ prompt_template_role_prompting = PromptTemplate(
 # Prompt templates for zero shot
 ####################################################################################################
 
+
 template_zero_shot = """
-    Beantworte folgende Frage in deutscher Sprache:
+   Beantworte folgende Frage im Zusammenhang mit dem deutschen Bankrecht. Es ist wichtig, dass deine Antwort sowohl präzise als auch fachlich korrekt formuliert ist.
     ---
     {query}
     ---
 
-    Nutze hierfür folgenden Kontext:
+    Berücksichtige für die Beantwortung der Frage folgenden Kontextinformation:
     ---
     {context}
     ---
+
+    Stelle sicher, dass deine Antwort ausschließlich in Form eines detaillierten Fließtexts vorliegt. Vermeide jegliche zusätzlichen Bemerkungen oder Erläuterungen, die nicht direkt zur Beantwortung der gestellten Frage beitragen.
     """
 
 prompt_template_zero_shot = PromptTemplate(
         input_variables=["query", "context"],
-        template=template,
+        template=template_zero_shot,
 )
 
 
@@ -72,7 +80,7 @@ prompt_template_zero_shot = PromptTemplate(
 ####################################################################################################
 
 template_one_shot = """
-    Beantworte folgende Frage in deutscher Sprache:
+    TEST 
     ---
     {query}
     ---
@@ -85,5 +93,37 @@ template_one_shot = """
 
 prompt_template_one_shot = PromptTemplate(
         input_variables=["query", "context"],
-        template=template,
+        template=template_one_shot,
 )
+
+############# Baseline Template ####################
+template_baseline_role = """
+    Als Professor für Bankrecht bist du speziell darauf ausgerichtet, komplexe rechtliche Fragen mit hoher Genauigkeit und Fachkenntnis zu beantworten. Deine Aufgabe besteht darin, präzise und juristisch korrekte Informationen zu liefern, basierend auf den bereitgestellten Details.
+    
+    ---
+    {query}
+    ---
+
+    Deine Antwort sollte in Form eines detaillierten Fließtexts vorliegen, der ausschließlich auf die gestellte Frage bezogen ist. Achte darauf, dass deine Antwort nicht durch unnötige Kommentare oder zusätzliche Informationen beeinträchtigt wird. Ziel ist es, eine klare, prägnante und direkt auf die Frage zugeschnittene Antwort zu liefern.     
+    """
+
+prompt_template_baseline_role_prompting = PromptTemplate(
+        input_variables=["query"],
+        template=template_baseline_role,
+)
+
+template_baseline_zero_shot = """
+   Beantworte folgende Frage im Zusammenhang mit dem deutschen Bankrecht. Es ist wichtig, dass deine Antwort sowohl präzise als auch fachlich korrekt formuliert ist.
+    
+    ---
+    {query}
+    ---
+
+    Stelle sicher, dass deine Antwort ausschließlich in Form eines detaillierten Fließtexts vorliegt. Vermeide jegliche zusätzlichen Bemerkungen oder Erläuterungen, die nicht direkt zur Beantwortung der gestellten Frage beitragen.
+    """
+
+prompt_template_baseline_zero_shot = PromptTemplate(
+        input_variables=["query"],
+        template=template_baseline_zero_shot,
+)
+

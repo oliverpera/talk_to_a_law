@@ -5,12 +5,13 @@ from model_types import init_modeltypes
 from configuration import UserConfiguration
 import os
 from embeddings import SpacyEmbeddingsFunction
-from prompt_templates import prompt_template
+from prompt_templates import prompt_template_zero_shot
 from sqllite3_script import get_users
 from sqllite3_script import check_user
 import chromadb
 from chainlit import User
 from dotenv import load_dotenv
+from chromadb import Documents, EmbeddingFunction, Embeddings
 
 
 ## global variables
@@ -19,12 +20,8 @@ models = init_modeltypes()
 users = [User(identifier="admin", metadata={"role": "admin", "provider": "credentials"})]
 
 
-chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
-collection = chroma_client.get_collection(
-        name="char_splitter_128_o0",
-        embedding_function=SpacyEmbeddingsFunction(),
-        # metadata={"hnsw:space": "cosine"} # "l2" (default: squared L2 norm), "ip" or "cosine"
-)
+chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
+
 
 def update_config(settings):
     config.set_temperature(settings["Temperature"])
@@ -98,7 +95,7 @@ async def start():
             TextInput(
                 id="SystemPrompt", 
                 label="System Prompt", 
-                initial="Du bist ein hilfsbereiter, freundlicher und verständlicher Assistent. Du hast Zugriff auf eine Wissensdatenbank für das Deutsche Bankrecht und kannst Fragen beantworten.")
+                initial="Du bist ein deutschsprachiger Assistent für das deutsche Bankenrecht. Beantworte die Anfrage des Nutzers in deutsch.")
         ]
     ).send()
     
@@ -131,6 +128,23 @@ async def setup_agent(settings):
     ##cl.user_session.set("admin", user)
 
 def set_prompt(message: cl.Message):
+    user = cl.user_session.get("user")
+    
+    replicateSession = Client(api_token=load_replicate_key_from_env(user.identifier))
+    class ReplicateEmbeddingsFunction(EmbeddingFunction):
+        def __call__(self, input: Documents) -> Embeddings:
+            embeddings = [replicateSession.run(
+                "replicate/all-mpnet-base-v2:b6b7585c9640cd7a9572c6e129c9549d79c9c31f0d3fdce7baac7c67ca38f305",
+                input={"text": document},
+            )[0]['embedding'] for document in input]
+            return embeddings
+    
+
+    collection = chroma_client.get_collection(
+        name="char_splitter_1024_o128_replicate",
+        embedding_function=ReplicateEmbeddingsFunction()
+        # metadata={"hnsw:space": "cosine"} # "l2" (default: squared L2 norm), "ip" or "cosine"
+)
     query_result = collection.query(
         # query_embeddings=[], # embedded question / part of question # HERE: PREFORMULATE ANSWER, EMBED ANSWER, RETRIEVE REAL KNOWLEDGE ?!? # needs to be the same dimension as embedded vectors in db
         query_texts=[message.content], # ALTERNATIVE THAN QUERYING WITH EMBEDDINGS -> CHROMA WILL AUTOMATICALLY EMBED USING EMBEDDING FUNCTION OF COLLECTION
@@ -141,7 +155,7 @@ def set_prompt(message: cl.Message):
     )
     
     documents = query_result['documents']
-    prompt = prompt_template.format(query=message.content, context=str(documents))
+    prompt = prompt_template_zero_shot.format(query=message.content, context=str(documents))
     return prompt
 
 @cl.on_message

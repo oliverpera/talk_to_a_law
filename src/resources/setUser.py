@@ -2,7 +2,7 @@ from sqllite3_script import set_user
 import argparse
 
 def main():
-    parser = argparse.ArgumentParser(description='BUser Anlegen')
+    parser = argparse.ArgumentParser(description='User Anlegen')
     parser.add_argument('--name', type=str, required=True, help='Benutzername')
     parser.add_argument('--password', type=str, required=True, help='Password')
     	

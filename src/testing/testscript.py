@@ -1,7 +1,7 @@
 
 import pandas as pd
 from chromadb import Documents, EmbeddingFunction, Embeddings
-from prompt_templates import prompt_template, prompt_template_role_prompting, prompt_template_zero_shot, prompt_template_one_shot
+#from prompt_templates import prompt_template, prompt_template_role_prompting, prompt_template_zero_shot, prompt_template_one_shot
 from replicate import Client
 from embeddings import SpacyEmbeddingsFunction
 import os

@@ -1,7 +1,7 @@
 import sqlite3
 import bcrypt 
 
-conn = sqlite3.connect('/app/resources/benutzer.db')
+conn = sqlite3.connect('benutzer.db')
 cursor = conn.cursor()
 
 cursor.execute('''
@@ -25,7 +25,7 @@ def check_password(password, stored_hash):
     return bcrypt.checkpw(passwort_bytes, stored_hash)
 
 def set_user(username, password):
-    conn = sqlite3.connect('/app/resources/benutzer.db')
+    conn = sqlite3.connect('benutzer.db')
     cursor = conn.cursor()
     password_hash = create_password_hash(password)
 
@@ -37,7 +37,7 @@ def set_user(username, password):
 
 
 def delete_user(username):
-    conn = sqlite3.connect('/app/resources/benutzer.db')
+    conn = sqlite3.connect('benutzer.db')
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -49,7 +49,7 @@ def delete_user(username):
 
     
 def check_user(username, password):
-    conn = sqlite3.connect('/app/resources/benutzer.db')
+    conn = sqlite3.connect('benutzer.db')
     cursor = conn.cursor()    
     cursor.execute('''
         SELECT password_hash FROM benutzer
@@ -72,7 +72,7 @@ def check_user(username, password):
         return None
 
 def get_users():
-    conn = sqlite3.connect('/app/resources/benutzer.db')
+    conn = sqlite3.connect('benutzer.db')
     cursor = conn.cursor()
     x = cursor.execute('''
         SELECT * FROM benutzer
@@ -86,7 +86,7 @@ def get_users():
    
     
 def is_password_correct(username, password):
-    conn = sqlite3.connect('/app/resources/benutzer.db')
+    conn = sqlite3.connect('benutzer.db')
     cursor = conn.cursor()
     cursor.execute('''
         SELECT password_hash FROM benutzer

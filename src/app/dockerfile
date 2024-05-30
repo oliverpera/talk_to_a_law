@@ -1,5 +1,5 @@
 # Verwende das offizielle Python-Image als Basis
-FROM python:latest
+FROM python:3.10.12
 
 # Setze das Arbeitsverzeichnis im Container
 WORKDIR /app
@@ -11,15 +11,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Kopiere den chainlit.py-Code in das Arbeitsverzeichnis
-COPY OliverPera/chainlit.py .
-COPY OliverPera/create_appuser.py .
-COPY OliverPera/model.py .
-COPY OliverPera/sqllite3_script.py .
-COPY OliverPera/test.py .
+COPY . .
 
-
-EXPOSE 2000
 
 # Definiere den Startbefehl
-CMD ["chainlit","run","chainlit.py","-w","--host","128.140.6.176", "--port","2000"]
+CMD ["chainlit","run","chainlit.py"]
 
