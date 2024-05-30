@@ -1,0 +1,19 @@
+# Verwende das offizielle Python-Image als Basis
+FROM python:3.10.12
+
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /app
+
+# Kopiere die requirements.txt-Datei in das Arbeitsverzeichnis
+COPY requirements.txt .
+
+# Installiere die Python-Bibliotheken gemäß requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Kopiere den chainlit.py-Code in das Arbeitsverzeichnis
+COPY . .
+
+
+# Definiere den Startbefehl
+CMD ["chainlit","run","chainlit.py"]
+

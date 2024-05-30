@@ -1,0 +1,7 @@
+bcrypt==4.0.1
+chromadb==0.4.24
+embeddings==0.0.8
+langchain==0.1.14
+chainlit==1.0.500
+replicate==0.25.1
+spacy==3.7.4
