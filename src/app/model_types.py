@@ -19,10 +19,3 @@ def init_modeltypes():
 
 
 
-
-### manual tests
-# model_ids = [model.id for model in init_modeltypes()]
-# print(model_ids)
-
-# model_names = [model.name for model in init_modeltypes()]
-# print(model_names)

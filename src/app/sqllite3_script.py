@@ -9,6 +9,7 @@ cursor.execute('''
         username TEXT PRIMARY KEY NOT NULL,
         password_hash TEXT NOT NULL,
         id INTEGER
+
     )
     ''')
 conn.commit()
@@ -33,6 +34,19 @@ def set_user(username, password):
         VALUES (?, ?)
     ''', (username, password_hash))
     conn.commit()
+
+
+def delete_user(username):
+    conn = sqlite3.connect('benutzer.db')
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        DELETE FROM benutzer
+        WHERE username = ?
+    ''', (username,))
+    conn.commit()
+    conn.close()
+
     
 def check_user(username, password):
     conn = sqlite3.connect('benutzer.db')
@@ -97,16 +111,5 @@ def is_password_correct(username, password):
         conn.close()
         return False
     
-    
-    
-# set_user('Hellstern', 'Hellstern_ist_toll')
-# set_user('Olli', 'Olli_ist_toll')
-# set_user('Robin', 'Robin_ist_toll')
-# set_user('Timon', 'Timon_ist_toll')
-
-# get_users()
-check_user('Olli', 'Olli_ist_toll')
-# check_user('Timon', 'Timon_ist_toll')
-
 
 conn.close()
