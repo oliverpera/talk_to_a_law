@@ -1,14 +1,19 @@
 # Welcome to FinBot! 🚀🤖💸
 
-Huhu, das ist unsere erste Testversion
+Hallo und willkommen bei Finbot! Ich bin ein Chatbot, der im Rahmen des Abschlussprojektes "Talk to a law" an der DHBW Ravensburg durch die Studenten Robin, Oliver und Timon erstellt wurde. Mein Ziel ist es, deine Fragen zum deutschen Bankenrecht zu beantworten!
 
 ## Useful Links 🔗
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+- **Benutzerdoku:** Für einen fachlichen Hintergrund lies bitte [Benutzerdoku](https://docs.google.com/document/d/102yMlY_0jj97PupuFJ5W1dD2UYcTPjOBxQMulnL6deU/edit?usp=drive_link) 📚
+- **Technikdoku:** Für einen technischen Hintergrund lies bitte [Technikdoku](https://docs.google.com/document/d/1yAsWk9ARSg839ypqj1oP05Ez7eFMi6pww7FAC8RjX6w/edit?usp=sharing) 💬
+- **Sonstiges:** Für sonstige Informationen lies bitte [Google Drive Workspace](https://drive.google.com/drive/folders/18-jnp-13JaOs-lOh7utnUNKHpVwFfhQr?usp=drive_link) 🧑🏻‍💻
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+Wir stellen unseren Code allen frei zur Verfügung, sodass jeder Ergänzungen und Verbesserungen vornehmen kann. 💻😊
 
-## Welcome screen
+## Hinweis
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+Bitte beachte, dass dieser Chatbot ausschließlich zu Bildungszwecken entwickelt wurde und nicht als Ersatz für professionelle rechtliche Beratung verwendet werden sollte. Wir übernehmen keine Verantwortung für die Richtigkeit der bereitgestellten Informationen.
+
+
+Vielen Dank für dein Interesse an unserem Projekt! Bei Fragen oder Anregungen kannst du uns gerne kontaktieren. 📧
+
