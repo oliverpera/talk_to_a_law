@@ -1,22 +1,44 @@
+import requests
+
 class LLMModelType:
     def __init__(self, id, name):
         self.id = id
         self.name = name
 
+
+def get_model_types():
+    try:
+        response = requests.get("http://localhost:1234/v1/models") ## default API Endpoint for LM Studio
+        return extract_models(response.json())
     
-def init_modeltypes():    
-    llama_2_70b = LLMModelType("Llama-2-70b", "meta/llama-2-70b-chat")
-    llama_2_13b = LLMModelType("Llama-2-13b", "meta/llama-2-13b-chat")
-    llama_2_7b = LLMModelType("Llama-2-7b", "meta/llama-2-7b-chat")
+    except requests.exceptions.RequestException as e:
+        errorMsg = f"Error: Failed to establish connection to local LM Studio API. Please check if the Server is running. \nError Message: {e}"
+        print(errorMsg)
+        return None
 
-    llama_3_70b = LLMModelType("Llama-3-70b", "meta/meta-llama-3-70b-instruct")
-    llama_3_8b = LLMModelType("Llama-3-8b", "meta/meta-llama-3-8b-instruct")
+
+def extract_models(json_response):
+    models = []
     
+    for item in json_response['data']:
+        models.append(item['id'])
+    
+    return models
 
-    mistral_7b = LLMModelType("Mistral-7b", "mistralai/mistral-7b-instruct-v0.2")
-    mistral_8x7b = LLMModelType("Mistral-8x7b", "mistralai/mixtral-8x7b-instruct-v0.1")
+            
+def init_modeltypes():
+    model_types = []    
+    models = get_model_types()
+    
+    if models is None:
+        return None
+    
+    count = 0
+    for model in models:
+        count += 1
+        model_types.append(LLMModelType(f"LLM {count}", model))
 
-    return [llama_2_70b, llama_2_13b, llama_2_7b, llama_3_70b, llama_3_8b, mistral_7b, mistral_8x7b]
+    return model_types
 
-
-
+# for model in init_modeltypes():
+#     print(model.id, model.name)    
