@@ -4,7 +4,6 @@ from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
 import os
-from embeddings import SpacyEmbeddingsFunction
 from prompt_templates import prompt_template_zero_shot
 from sqllite3_script import get_users
 from sqllite3_script import check_user
@@ -182,9 +181,14 @@ async def on_message(message: cl.Message):
         input=input,
         stream=True
     ):
-        print(event, end="")
-        await msg.stream_token(str(event))
-        
+        if event is not None:
+            print(event, end="")
+            await msg.stream_token(str(event))
+        else:
+            print("No content received. The response is empty.")
+            errorMsg = cl.Message(content="No content received. The response is empty.")
+            await errorMsg.send()
+            
     # msg = cl.Message(content=str(event))
     # await msg.send()
     # get_users()

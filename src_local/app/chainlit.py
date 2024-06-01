@@ -2,7 +2,6 @@ import chainlit as cl
 from chainlit.input_widget import Slider, Select, TextInput
 from model_types import init_modeltypes
 from configuration import UserConfiguration
-from embeddings import SpacyEmbeddingsFunction
 from prompt_templates import prompt_template_zero_shot
 import chromadb
 from chainlit import User
@@ -14,14 +13,6 @@ from openai import AsyncOpenAI
 config = UserConfiguration(None, None, None, None)
 models = init_modeltypes()
 users = [User(identifier="admin", metadata={"role": "admin", "provider": "credentials"})]
-
-
-class SpacyEmbeddingsFunction(EmbeddingFunction):
-    def __call__(self, input: Documents) -> Embeddings:
-        nlp = spacy.load("de_core_news_lg") # md , lg
-        embeddings = [nlp(document).vector.tolist() for document in input]
-        return embeddings
-spacy_ef = SpacyEmbeddingsFunction()
 
 ## run locally without docker chroma_client = chromadb.PersistentClient(path="../resources/chromadb/")
 chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
@@ -104,6 +95,12 @@ async def setup_agent(settings):
 def set_prompt(message: cl.Message):
     user = cl.user_session.get("user")
 
+    class SpacyEmbeddingsFunction(EmbeddingFunction):
+        def __call__(self, input: Documents) -> Embeddings:
+            nlp = spacy.load("de_core_news_lg") # md , lg
+            embeddings = [nlp(document).vector.tolist() for document in input]
+            return embeddings
+    
     collection = chroma_client.get_collection(
         name="char_splitter_1024_o128_spacy",
         embedding_function=SpacyEmbeddingsFunction()
@@ -145,6 +142,10 @@ async def on_message(message: cl.Message):
             if chunk.choices[0].delta.content is not None:
                 print(chunk.choices[0].delta.content)
                 await msg.stream_token(str(chunk.choices[0].delta.content))
+            else:
+                print("No content received. The response is empty.")
+                errorMsg = cl.Message(content="No content received. The response is empty.")
+                await errorMsg.send()
                
     except Exception as e:
         errorMsg = cl.Message(content=f"Error: Failed to establish connection: {e}")
