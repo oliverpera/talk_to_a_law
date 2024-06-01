@@ -14,7 +14,8 @@ config = UserConfiguration(None, None, None, None)
 models = init_modeltypes()
 users = [User(identifier="admin", metadata={"role": "admin", "provider": "credentials"})]
 
-## run locally without docker chroma_client = chromadb.PersistentClient(path="../resources/chromadb/")
+## run locally without docker 
+##chroma_client = chromadb.PersistentClient(path="../resources/chromadb/")
 chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
 
 

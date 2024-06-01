@@ -36,7 +36,7 @@ def init_modeltypes():
     count = 0
     for model in models:
         count += 1
-        model_types.append(LLMModelType(f"LLM {count}", model))
+        model_types.append(LLMModelType(f"LLM {count}: {model}", model))
 
     return model_types
 

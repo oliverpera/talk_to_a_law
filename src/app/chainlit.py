@@ -121,8 +121,10 @@ def check_if_replicate_api_key_is_set():
 
 @cl.on_settings_update
 async def setup_agent(settings):
-    print("Setup agent with following settings: ", settings)
     update_config(settings)
+    print("Setup agent with following settings: ", settings)
+    updateMsg = cl.Message(content=f"Settings updated: {settings}")
+    await updateMsg.send()
 
     ##cl.user_session.set("admin", user)
 
