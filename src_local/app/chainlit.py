@@ -23,7 +23,7 @@ class SpacyEmbeddingsFunction(EmbeddingFunction):
         return embeddings
 spacy_ef = SpacyEmbeddingsFunction()
 
-
+## run locally without docker chroma_client = chromadb.PersistentClient(path="../resources/chromadb/")
 chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
 
 
@@ -112,7 +112,7 @@ def set_prompt(message: cl.Message):
     query_result = collection.query(
         # query_embeddings=[], # embedded question / part of question # HERE: PREFORMULATE ANSWER, EMBED ANSWER, RETRIEVE REAL KNOWLEDGE ?!? # needs to be the same dimension as embedded vectors in db
         query_texts=[message.content], # ALTERNATIVE THAN QUERYING WITH EMBEDDINGS -> CHROMA WILL AUTOMATICALLY EMBED USING EMBEDDING FUNCTION OF COLLECTION
-        n_results=4, # number of docs to retrieve
+        n_results=2, # number of docs to retrieve
         # where={"metadata_field": "is_equal_to_this"}, # filter metadata
         # where_document={"$contains": "search_string"}, # filter for hard words / regexes etc.
         # include=["documents"], # specify which data to return (embeddings is excluded by default)
@@ -145,7 +145,7 @@ async def on_message(message: cl.Message):
             if chunk.choices[0].delta.content is not None:
                 print(chunk.choices[0].delta.content)
                 await msg.stream_token(str(chunk.choices[0].delta.content))
-                
+               
     except Exception as e:
         errorMsg = cl.Message(content=f"Error: Failed to establish connection: {e}")
         print("Error: Failed to establish connection: ", e)
