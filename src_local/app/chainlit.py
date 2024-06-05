@@ -16,7 +16,7 @@ users = [User(identifier="admin", metadata={"role": "admin", "provider": "creden
 
 ## run locally without docker 
 ##chroma_client = chromadb.PersistentClient(path="../resources/chromadb/")
-chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
+chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
 
 
 def update_config(settings):
