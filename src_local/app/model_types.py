@@ -8,14 +8,15 @@ class LLMModelType:
 
 def get_model_types():
     try:
-        response = requests.get("http://localhost:1234/v1/models") ## default API Endpoint for LM Studio
+        ## run locally without docker 
+        ## response = requests.get("http://localhost:1234/v1/models") ## default API Endpoint for LM Studio
+        response = requests.get("http://host.docker.internal:1234/v1/models") ## default API Endpoint for LM Studio
         return extract_models(response.json())
     
     except requests.exceptions.RequestException as e:
-        errorMsg = f"Error: Failed to establish connection to local LM Studio API. Please check if the Server is running. \nError Message: {e}"
-        print(errorMsg)
-        return None
-
+        errorMsg = f"\033[1;31mError: Failed to establish connection to local LM Studio API. Please check if the Server is running. \nError Message: {e}\033[0m"
+        raise RuntimeError(errorMsg)
+        
 
 def extract_models(json_response):
     models = []

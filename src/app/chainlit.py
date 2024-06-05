@@ -173,8 +173,6 @@ async def on_message(message: cl.Message):
         
     input = {
         "prompt": prompt,
-        "max_new_tokens": 1024,
-        "system_prompt": config.get_textinput(),
         "temperature": config.get_temperature(),
     }
         
@@ -188,12 +186,6 @@ async def on_message(message: cl.Message):
             await msg.stream_token(str(event))
         else:
             print("No content received. The response is empty.")
-            errorMsg = cl.Message(content="No content received. The response is empty.")
-            await errorMsg.send()
-            
-    # msg = cl.Message(content=str(event))
-    # await msg.send()
-    # get_users()
     
 
 def load_replicate_key_from_env(username):

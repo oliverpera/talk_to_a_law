@@ -57,7 +57,7 @@ async def start():
             Select(
                 id="Model",
                 label="LLM loaded from LM Studio",
-                values=[model.id for model in init_modeltypes()],
+                values=[model.id for model in models],
                 initial_index=0,
             ),
             # Since we are running the LLM locally there is no need to have the API key
@@ -83,7 +83,8 @@ async def start():
 
 @cl.on_stop
 def on_stop():
-    print("The user wants to stop the task!")
+    endMsg = f"\033[1;31mThe user wants to stop the task!\033[0m"
+    print(endMsg)
 
 
 @cl.on_settings_update
@@ -127,15 +128,16 @@ async def on_message(message: cl.Message):
     
     prompt = set_prompt(message)
     
-    client = AsyncOpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+    ## Run locally without docker
+    ## client = AsyncOpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+    client = AsyncOpenAI(base_url="http://host.docker.internal:1234/v1", api_key="lm-studio")
     cl.instrument_openai()
         
     try:
         stream = await client.chat.completions.create(
             model=config.get_modelpath(),   
             temperature=config.get_temperature(),
-            messages=[{"role": "system", "content": config.get_textinput()},
-                      {"role": "user", "content": prompt}],
+            messages=[{"role": "user", "content": prompt}],
             stream=True,
         )
         
