@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Kopiere den chainlit.py-Code in das Arbeitsverzeichnis
 COPY . .
 
+EXPOSE 8000
+
 
 # Definiere den Startbefehl
 CMD ["chainlit","run","chainlit.py"]
