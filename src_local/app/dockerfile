@@ -1,20 +1,14 @@
-# loa
+
 FROM python:3.10.12
 
-# Setze das Arbeitsverzeichnis im Container
 WORKDIR /app
-
-# Kopiere die requirements.txt-Datei in das Arbeitsverzeichnis
 COPY requirements.txt .
-
-# Installiere die Python-Bibliotheken gemäß requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+#change if you want to use other Embedding-Modell
 RUN python -m spacy download de_core_news_lg
-
-
 COPY . .
-
 EXPOSE 8000
+EXPOSE 1234
 
 # Definiere den Startbefehl
 CMD ["chainlit","run","chainlit.py"]
