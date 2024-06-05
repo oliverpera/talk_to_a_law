@@ -1,4 +1,4 @@
-# Verwende das offizielle Python-Image als Basis
+# loa
 FROM python:3.10.12
 
 # Setze das Arbeitsverzeichnis im Container
@@ -9,8 +9,9 @@ COPY requirements.txt .
 
 # Installiere die Python-Bibliotheken gemäß requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m spacy download de_core_news_lg
 
-# Kopiere den chainlit.py-Code in das Arbeitsverzeichnis
+
 COPY . .
 
 EXPOSE 8000
