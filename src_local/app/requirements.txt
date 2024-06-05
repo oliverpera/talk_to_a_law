@@ -5,3 +5,4 @@ langchain==0.1.14
 chainlit==1.0.500
 replicate==0.25.1
 spacy==3.7.4
+openai==1.17.1
