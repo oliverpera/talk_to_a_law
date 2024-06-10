@@ -4,14 +4,14 @@
 
 **Beschreibung:** 📝
 
-Willkommen beim Chatbot für Fragen bezüglich des Deutschen Bankrechts! 🎉 Dieses Repository beinhaltet einen Chatbot, der mithilfe von Llama2 und Chainlit entwickelt wurde, um Fragen zum deutschen Bankrecht zu beantworten. 💡
+Willkommen beim Chatbot für Fragen bezüglich des Deutschen Bankrechts! 🎉 Dieses Repository beinhaltet einen Chatbot, der von drei Studenten der DHBW Ravensburg entwickelt wurde, um Fragen zum deutschen Bankrecht zu beantworten. 💡
 
 ---
 
 **Funktionalitäten:** 🛠️
 
 - Beantwortung von Fragen zum deutschen Bankrecht
-- Verwendung von Llama2 und Chainlit zur Sprachverarbeitung und zur Modellierung von Interaktionen
+- Verwendung von Open Source LLMs und Chainlit als Weboberfläche
 
 ---
 
