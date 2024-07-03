@@ -16,8 +16,7 @@ users = [User(identifier="admin", metadata={"role": "admin", "provider": "creden
 
 ## run locally without docker 
 ##chroma_client = chromadb.PersistentClient(path="../resources/chromadb/")
-chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
-
+chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
 
 def update_config(settings):
     config.set_temperature(settings["Temperature"])
@@ -39,8 +38,8 @@ def get_modelpath(model_id):
 async def start():   
     user = cl.user_session.get("user")
     
-    chroma_client = chromadb.PersistentClient(path="../resources/chromadb")
-
+    chroma_client = chromadb.PersistentClient(path="/app/resources/chromadb")
+    
     msg = cl.Message(content="Starting the bot...")
     await msg.send()
     
@@ -157,5 +156,5 @@ async def on_message(message: cl.Message):
             
             
 
-    
+    ##/Users/oliverpera/Desktop/talk_to_a_law
     
